@@ -11,6 +11,7 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchCharities({ cause: searchParams.cause });
+      console.log(data);
       setAllCharities(data);
     };
 

@@ -16,7 +16,7 @@ const CharityCard = ({ charity }: CharityCardProps) => {
         <div className="charity-card__content">
           <div className="logo-name-container">
             <Image
-              src={logoUrl ? logoUrl : '/no-icon.png'}
+              src={logoUrl ? logoUrl : '/no-icon.jpg'}
               alt={`${name} logo`}
               width={50}
               height={50}

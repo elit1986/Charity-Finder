@@ -1,3 +1,4 @@
+import exp from 'constants';
 import { MouseEventHandler } from 'react';
 
 export interface CustomeButtonProps {
@@ -12,10 +13,18 @@ export interface SearchCharityProps {
   setCharity: (charity: string) => void;
 }
 
-export interface CharityProps {
+export interface NonprofitTag {
   id: string;
+  tagName: string;
+  causeCategory: string;
+  title: string;
+  tagImageCloudinaryId: string;
+  tagUrl: string;
+  tagImageUrl: string;
+}
+
+export interface CharityTypes {
   slug: string;
-  primarySlug: string;
   description: string;
   ein: string;
   name: string;
@@ -24,6 +33,14 @@ export interface CharityProps {
   websiteUrl: string;
   coverImageUrl: string;
   location: string;
+}
+
+export interface CharitDetailTypes {
+  name: string;
+  description: string;
+  primarySlug: string;
+  nonprofitTags: NonprofitTag[];
   locationAddress: string;
-  tags: string[];
+  logoUrl: string;
+  coverImageUrl: string;
 }

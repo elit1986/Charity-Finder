@@ -5,7 +5,7 @@ const HeartButton = () => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push('/favourites');
+    router.push('/favorites');
   };
 
   return <button className="heart-button" onClick={handleClick}></button>;
