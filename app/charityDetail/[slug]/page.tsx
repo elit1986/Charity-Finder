@@ -69,9 +69,9 @@ const CharityDetails = ({ params }: CharityDetailsProps) => {
           height={500}
           className="rounded-image"
         />
-        <div className="location-container mt-5 ">
+        <div className="location-container mt-10 ">
           <Image src="/location.jpg" alt="location" width={20} height={20} />
-          <span className="text-2xl font-bold ml-3 ">
+          <span className="text-xl font-bold ml-3 ">
             {charity.location
               ? charity.location
               : charity.locationAddress
@@ -93,7 +93,7 @@ const CharityDetails = ({ params }: CharityDetailsProps) => {
         </div>
       </div>
 
-      <div className="flex-1 pt-10 padding-x">
+      <div className="flex-1 items-center pt-10 padding-x">
         <div className="image__container">
           <div className="logo-name-container mt-10">
             <Image
@@ -103,11 +103,11 @@ const CharityDetails = ({ params }: CharityDetailsProps) => {
               height={80}
               className="rounded-full"
             />
-            <h1 className="text-4xl font-extrabold tracking-widest">
+            <h1 className="text-3xl font-extrabold tracking-widest">
               {charity.name}
             </h1>
           </div>
-          <p className="text-2xl mt-10 tracking-wide text-justify">
+          <p className="text-xl mt-10 tracking-wide text-justify">
             {charity.description}
           </p>
 

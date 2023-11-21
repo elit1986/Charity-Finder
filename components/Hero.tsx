@@ -20,8 +20,8 @@ const Hero = () => {
           rel="noopener noreferrer"
         >
           <CustomeButton
-            title="Explore Charities"
-            containerStyles="bg-specialGreen text-white rounded-full mt-10 tracking-wider"
+            title="EXPLORE CHARITIES"
+            containerStyles="bg-specialGreen text-white rounded-full mt-10 tracking-widest"
           />
         </a>
       </div>

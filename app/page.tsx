@@ -43,9 +43,6 @@ export default function Home() {
           {' '}
           Explore a Charity You Might Like
         </h1>
-        {/* <p className="text-2xl tracking-wide flex items-center justify-center mb-10 ">
-          Explore the charity you might like
-        </p> */}
       </div>
       <div className="flex items-center justify-center">
         <SearchBar
