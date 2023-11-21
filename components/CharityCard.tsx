@@ -7,7 +7,7 @@ interface CharityCardProps {
 }
 
 const CharityCard = ({ charity }: CharityCardProps) => {
-  const { name, logoUrl, location, slug } = charity;
+  const { name, logoUrl, location, slug, locationAddress } = charity;
   console.log(charity);
 
   return (
@@ -16,7 +16,7 @@ const CharityCard = ({ charity }: CharityCardProps) => {
         <div className="charity-card__content">
           <div className="logo-name-container">
             <Image
-              src={logoUrl ? logoUrl : '/no-icon.jpg'}
+              src={logoUrl ? logoUrl : '/no-icon.png'}
               alt={`${name} logo`}
               width={50}
               height={50}
@@ -27,7 +27,13 @@ const CharityCard = ({ charity }: CharityCardProps) => {
 
           <div className="location-container">
             <Image src="/location.jpg" alt="location" width={20} height={20} />
-            <span className="location-text">{location}</span>
+            <span className="location-text">
+              {location
+                ? location
+                : locationAddress
+                ? locationAddress
+                : 'Unknown Location'}
+            </span>
           </div>
         </div>
       </div>

@@ -52,6 +52,8 @@
   border-radius: 2%;
 }
 
+
+
 /* END: General styles */
 
 /* START: Hero styles */
@@ -285,7 +287,9 @@
 }
 
 .location-text {
-  margin-left: 10px; 
+  margin: 10px; 
+  padding-right: 10px;
+
 }
 
 

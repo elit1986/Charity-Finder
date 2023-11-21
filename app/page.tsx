@@ -1,12 +1,19 @@
 'use client';
+import { useEffect, useState } from 'react';
 import { CharityCard, Hero, SearchBar } from '@/components';
 import { fetchCharities } from '@/utils';
-
-import { useEffect, useState } from 'react';
+import { causes } from '@/constants';
 
 export default function Home() {
   const [allCharities, setAllCharities] = useState([]);
   const [searchParams, setSearchParams] = useState({ cause: '' });
+  const [randomCharities, setRandomCharities] = useState([]);
+
+  const fetchRandomCharities = async () => {
+    const randomCause = causes[Math.floor(Math.random() * causes.length)];
+    const data = await fetchCharities({ cause: randomCause });
+    setRandomCharities(data);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,6 +28,12 @@ export default function Home() {
   const isDataEmpty =
     !Array.isArray(allCharities) || allCharities.length < 1 || !allCharities;
 
+  useEffect(() => {
+    if (isDataEmpty) {
+      fetchRandomCharities();
+    }
+  }, [isDataEmpty]);
+
   return (
     <main className="overflow-hidden">
       <Hero />
@@ -28,11 +41,11 @@ export default function Home() {
       <div>
         <h1 className="text-4xl font-extrabold tracking-widest flex items-center justify-center mb-5 mt-10">
           {' '}
-          Find a Charity
+          Explore a Charity You Might Like
         </h1>
-        <p className="text-2xl tracking-wide flex items-center justify-center mb-10 ">
+        {/* <p className="text-2xl tracking-wide flex items-center justify-center mb-10 ">
           Explore the charity you might like
-        </p>
+        </p> */}
       </div>
       <div className="flex items-center justify-center">
         <SearchBar
@@ -44,16 +57,27 @@ export default function Home() {
 
       {!isDataEmpty ? (
         <section>
-          <div className="home__cars-wrapper">
+          <h2 className="flex items-center justify-center my-10 text-xl font-bold tracking-wide text-specialGreen">
+            "SEARCH RESULTS FOR : {searchParams.cause.toLocaleUpperCase()}"
+          </h2>
+          <div>
             {allCharities?.map((charity, index) => (
               <CharityCard key={index} charity={charity} />
             ))}
           </div>
         </section>
       ) : (
-        <div className="home__error-container">
-          <h2 className="text-black text-xl font-bold my-10">No results</h2>
-        </div>
+        <section>
+          <h2 className="flex items-center justify-center my-10 text-xl font-bold tracking-wide text-specialGreen">
+            {' '}
+            "SOME FEATURED CHARITIES"
+          </h2>
+          <div className="mb-20">
+            {randomCharities?.map((charity, index) => (
+              <CharityCard key={index} charity={charity} />
+            ))}
+          </div>
+        </section>
       )}
     </main>
   );

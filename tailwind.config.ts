@@ -26,6 +26,7 @@ module.exports = {
         specialGreen: '#275661',
         lightGreen: '#6fc6b2',
         searchbg: '#f6fcfe',
+        searchResult: '#fe7b5b',
       },
       backgroundImage: {
         pattern: "url('/pattern.png')",

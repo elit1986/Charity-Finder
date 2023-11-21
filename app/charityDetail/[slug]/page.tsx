@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import { fetchCharity } from '@/utils';
 import { CharityProps } from '@/types';
-
 import Image from 'next/image';
 
 interface CharityDetailsProps {
@@ -73,9 +72,11 @@ const CharityDetails = ({ params }: CharityDetailsProps) => {
         <div className="location-container mt-5 ">
           <Image src="/location.jpg" alt="location" width={20} height={20} />
           <span className="text-2xl font-bold ml-3 ">
-            {charity.locationAddress
+            {charity.location
+              ? charity.location
+              : charity.locationAddress
               ? charity.locationAddress
-              : 'Location Unknown'}
+              : 'Unknown Location'}
           </span>
         </div>
         <div>
