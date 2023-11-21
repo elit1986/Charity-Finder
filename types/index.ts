@@ -13,6 +13,9 @@ export interface SearchCharityProps {
 }
 
 export interface CharityProps {
+  id: string;
+  slug: string;
+  primarySlug: string;
   description: string;
   ein: string;
   name: string;
@@ -21,5 +24,6 @@ export interface CharityProps {
   websiteUrl: string;
   coverImageUrl: string;
   location: string;
+  locationAddress: string;
   tags: string[];
 }

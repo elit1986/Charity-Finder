@@ -23,6 +23,9 @@ module.exports = {
           100: 'rgba(59,60,152,0.02)',
         },
         grey: '#747A88',
+        specialGreen: '#275661',
+        lightGreen: '#6fc6b2',
+        searchbg: '#f6fcfe',
       },
       backgroundImage: {
         pattern: "url('/pattern.png')",

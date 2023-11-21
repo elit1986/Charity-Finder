@@ -7,15 +7,21 @@ interface CharityCardProps {
 }
 
 const CharityCard = ({ charity }: CharityCardProps) => {
-  const { name, logoUrl, location, ein } = charity;
+  const { name, logoUrl, location, slug } = charity;
   console.log(charity);
 
   return (
-    <Link href={`/charityDetails/${ein}`} passHref>
+    <Link href={`/charityDetail/${slug}`} passHref>
       <div className="charity-card group">
         <div className="charity-card__content">
           <div className="logo-name-container">
-            <Image src={logoUrl} alt={`${name} logo`} width={50} height={50} />
+            <Image
+              src={logoUrl ? logoUrl : '/no-icon.png'}
+              alt={`${name} logo`}
+              width={50}
+              height={50}
+              className="rounded-full"
+            />
             <h2 className="charity-card__content-title">{name}</h2>
           </div>
 

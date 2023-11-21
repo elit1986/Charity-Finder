@@ -13,10 +13,11 @@ export const fetchCharities = async ({ cause }: { cause: string }) => {
   }
 };
 
-export const fetchCharity = async (ein: string) => {
+export const fetchCharity = async (slug: string) => {
   try {
-    const API_URL = `https://partners.every.org/v0.2/nonprofit/${ein}?apiKey=${charityAPIKey}`;
+    const API_URL = `https://partners.every.org/v0.2/nonprofit/${slug}?apiKey=${charityAPIKey}`;
     const response = await axios.get(API_URL);
+    console.log(response);
     return response.data.data.nonprofit;
   } catch (error) {
     console.error('Error fetching data:', error);

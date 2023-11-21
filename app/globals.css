@@ -35,10 +35,27 @@
 .custom-btn {
   @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
 }
+
+.bg-custom-green {
+  background-color: #275661; 
+}
+
+.favourite-btn {
+  @apply bg-white border-2 border-specialGreen hover:bg-specialGreen text-specialGreen hover:text-white py-4 mt-5 tracking-wide w-72 text-center;
+}
+
+.checkEvery_btn {
+  @apply bg-specialGreen text-white border-2 border-specialGreen hover:bg-white hover:text-specialGreen py-4 mt-5 tracking-wide w-72 text-center;
+}
+
+.rounded-image {
+  border-radius: 2%;
+}
+
 /* END: General styles */
 
 /* START: Hero styles */
-.hero {
+.parent__container {
   @apply flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto;
 }
 
@@ -50,16 +67,12 @@
   @apply text-[27px] text-black-100 font-light my-10 ;
 }
 
-.bg-custom-green {
-  background-color: #275661; 
-}
-
 .hero__image-container {
   @apply xl:flex-1 flex justify-end items-end w-3/4 xl:h-screen ;
 }
 
-.hero__image {
-  @apply relative xl:w-full w-[90%] xl:h-full h-[590px] z-0 pt-20 pr-20 pb-0;
+.image__container {
+  @apply relative xl:w-full w-[90%] xl:h-full h-[590px] z-0 pr-20 pb-0;
 }
 
 .hero__image-overlay {
@@ -274,7 +287,6 @@
 .location-text {
   margin-left: 10px; 
 }
-
 
 
 .logo-name-container {

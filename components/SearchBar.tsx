@@ -50,7 +50,7 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
     router.push(newPathname);
   };
   return (
-    <form className="searchbar" onSubmit={handleSearch}>
+    <form className="searchbar bg-searchbg" onSubmit={handleSearch}>
       <div className="searchbar__item">
         <SearchCharity charity={charity} setCharity={setCharity} />
         <SearchButton />

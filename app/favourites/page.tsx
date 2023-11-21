@@ -6,10 +6,21 @@ import { CharityProps } from '@/types';
 const Favourites: React.FC = () => {
   const [favorites, setFavorites] = useState<CharityProps[]>([]);
 
-  useEffect(() => {
+  const loadFavorites = () => {
     const favoritesString = localStorage.getItem('favorites') ?? '[]';
     const loadedFavorites: CharityProps[] = JSON.parse(favoritesString);
     setFavorites(loadedFavorites);
+  };
+
+  useEffect(() => {
+    loadFavorites();
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('storage', loadFavorites);
+    return () => {
+      window.removeEventListener('storage', loadFavorites);
+    };
   }, []);
 
   return (
