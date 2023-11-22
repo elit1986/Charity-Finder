@@ -1,14 +1,15 @@
 import Image from 'next/image';
-import { CharityProps } from '@/types';
+import { CharityType } from '@/types';
 import Link from 'next/link';
 
 interface CharityCardProps {
-  charity: CharityProps;
+  charity: CharityType;
 }
 
 const CharityCard = ({ charity }: CharityCardProps) => {
-  const { name, logoUrl, location, slug, locationAddress } = charity;
-  console.log(charity);
+  const { name, logoUrl, locationAddress, primarySlug, location, slug } =
+    charity;
+  console.log(slug);
 
   return (
     <Link href={`/charityDetail/${slug}`} passHref>
@@ -28,10 +29,10 @@ const CharityCard = ({ charity }: CharityCardProps) => {
           <div className="location-container">
             <Image src="/location.jpg" alt="location" width={20} height={20} />
             <span className="location-text">
-              {location
-                ? location
-                : locationAddress
+              {locationAddress
                 ? locationAddress
+                : location
+                ? location
                 : 'Unknown Location'}
             </span>
           </div>

@@ -3,7 +3,11 @@ import Image from 'next/image';
 import { Fragment, useState } from 'react';
 import { Combobox, Transition } from '@headlessui/react';
 import { causes } from '@/constants';
-import { SearchCharityProps } from '@/types';
+
+interface SearchCharityProps {
+  charity: string;
+  setCharity: (charity: string) => void;
+}
 
 const SearchManufacturer = ({ charity, setCharity }: SearchCharityProps) => {
   const [query, setQuery] = useState('');

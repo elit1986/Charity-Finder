@@ -1,15 +1,14 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import CharityCard from '../../components/CharityCard';
-import { CharityProps } from '@/types';
+import { CharityType } from '@/types';
 
 const favorites: React.FC = () => {
-  const [favorites, setFavorites] = useState<CharityProps[]>([]);
+  const [favorites, setFavorites] = useState<CharityType[]>([]);
 
   const loadFavorites = () => {
     const favoritesString = localStorage.getItem('favorites') ?? '[]';
-    const loadedFavorites: CharityProps[] = JSON.parse(favoritesString);
-    console.log(loadedFavorites);
+    const loadedFavorites: CharityType[] = JSON.parse(favoritesString).map((favorite: CharityType) => ({ ...favorite, slug: favorite.slug }));    console.log(loadedFavorites);
     setFavorites(loadedFavorites);
   };
 
@@ -33,8 +32,8 @@ const favorites: React.FC = () => {
         <section>
           <div>
             {favorites.length > 0 ? (
-              favorites.map((favorite: CharityProps) => (
-                <CharityCard key={favorite.slug} charity={favorite} />
+              favorites.map((favorite, index) => (
+                <CharityCard key={index} charity={favorite} />
               ))
             ) : (
               <p>No favorite charities added yet.</p>

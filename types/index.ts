@@ -1,17 +1,3 @@
-import { MouseEventHandler } from 'react';
-
-export interface CustomeButtonProps {
-  title: string;
-  containerStyles?: string;
-  handleClick?: MouseEventHandler<HTMLButtonElement>;
-  btnType?: 'button' | 'submit';
-}
-
-export interface SearchCharityProps {
-  charity: string;
-  setCharity: (charity: string) => void;
-}
-
 export interface NonprofitTag {
   id: string;
   tagName: string;
@@ -22,20 +8,36 @@ export interface NonprofitTag {
   tagImageUrl: string;
 }
 
-export interface CharityProps {
-  id: string;
-  slug: string;
-  primarySlug: string;
+export interface CharityType {
   description: string;
   ein: string;
   name: string;
   profileUrl: string;
   logoUrl: string;
-  websiteUrl: string;
   coverImageUrl: string;
+  slug: string;
   location: string;
   locationAddress: string;
-  nonprofitTags: NonprofitTag[];
+  websiteUrl: string;
+  tags: string[];
+  matchedTerms: string[];
+  logoCloudinaryId: string;
+  primarySlug: string;
 }
 
-
+export interface CharityDetailType {
+  id: string;
+  name: string;
+  locationAddress: string;
+  ein: string;
+  description: string;
+  primarySlug: string;
+  logoCloudinaryId: string;
+  coverImageCloudinaryId: string;
+  websiteUrl: string;
+  logoUrl: string;
+  coverImageUrl: string;
+  profileUrl: string;
+  nonprofitTags: NonprofitTag[];
+  slug: string;
+}

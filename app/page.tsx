@@ -40,7 +40,6 @@ export default function Home() {
 
       <div>
         <h1 className="text-4xl font-extrabold tracking-widest flex items-center justify-center mb-5 mt-10">
-          {' '}
           Explore a Charity You Might Like
         </h1>
       </div>

@@ -1,14 +1,14 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { fetchCharity } from '@/utils';
-import { CharityProps } from '@/types';
+import { CharityDetailType } from '@/types';
 import Image from 'next/image';
 
 interface CharityDetailsProps {
   params: { slug: string };
 }
 const CharityDetails = ({ params }: CharityDetailsProps) => {
-  const [charity, setCharity] = useState<CharityProps | null>(null);
+  const [charity, setCharity] = useState<CharityDetailType | null>(null);
 
   const [isFavourite, setIsFavourite] = useState<boolean>(false);
 
@@ -17,7 +17,8 @@ const CharityDetails = ({ params }: CharityDetailsProps) => {
       const fetchData = async () => {
         console.log(params.slug);
         const data = await fetchCharity(params.slug as string);
-        setCharity(data);
+        console.log(data);
+        setCharity({ ...data, slug: params.slug });
       };
 
       fetchData();
@@ -28,7 +29,7 @@ const CharityDetails = ({ params }: CharityDetailsProps) => {
     if (charity) {
       const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
       setIsFavourite(
-        favorites.some((fav: CharityProps) => fav.name === charity.name)
+        favorites.some((fav: CharityDetailType) => fav.name === charity.name)
       );
     }
   }, [charity]);
@@ -45,7 +46,7 @@ const CharityDetails = ({ params }: CharityDetailsProps) => {
     const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
     if (isFavourite) {
       const newfavorites = favorites.filter(
-        (fav: CharityProps) => fav.name !== charity.name
+        (fav: CharityDetailType) => fav.name !== charity.name
       );
       localStorage.setItem('favorites', JSON.stringify(newfavorites));
     } else {
@@ -72,9 +73,7 @@ const CharityDetails = ({ params }: CharityDetailsProps) => {
         <div className="location-container mt-10 ">
           <Image src="/location.jpg" alt="location" width={20} height={20} />
           <span className="text-xl font-bold ml-3 ">
-            {charity.location
-              ? charity.location
-              : charity.locationAddress
+            {charity.locationAddress
               ? charity.locationAddress
               : 'Unknown Location'}
           </span>

@@ -48,12 +48,6 @@
   @apply bg-specialGreen text-white border-2 border-specialGreen hover:bg-white hover:text-specialGreen py-4 mt-5 tracking-wide w-72 text-center;
 }
 
-.rounded-image {
-  border-radius: 2%;
-}
-
-
-
 /* END: General styles */
 
 /* START: Hero styles */
@@ -301,4 +295,8 @@
 
 .charity-card__content-title {
   margin: 0; 
+}
+
+.rounded-image {
+  border-radius: 2%;
 }
